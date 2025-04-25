@@ -10,7 +10,7 @@ on:
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
-  label-using-string:
+  add-labels:
     runs-on: ubuntu-latest
     steps:
       - name: Label Issues and PRs with DeepSeek AI
@@ -18,5 +18,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deepseek-api-key: ${{ secrets.DEEPSEEK_API_KEY }}
-          label-mapping: '{"bug": "bug", "feature": "enhancement", "documentation": "docs"}'
+          label-mapping: '{"bug": "bug", "feature": "enhancement"}'
           max-issues: 20
