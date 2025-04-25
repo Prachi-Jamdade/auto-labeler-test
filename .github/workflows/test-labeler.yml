@@ -17,6 +17,6 @@ jobs:
         uses: Prachi-Jamdade/auto-labeler@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deepseek-api-key: ${{ secrets.DEEPSEEK_API_KEY }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
           label-mapping: '{"bug": "bug", "feature": "enhancement"}'
           max-issues: 20
