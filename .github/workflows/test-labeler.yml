@@ -1,0 +1,22 @@
+name: Label Issues and PRs
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  label-using-string:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label Issues and PRs with DeepSeek AI
+        uses: Prachi-Jamdade/auto-labeler@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deepseek-api-key: ${{ secrets.DEEPSEEK_API_KEY }}
+          label-mapping: '{"bug": "bug", "feature": "enhancement", "documentation": "docs"}'
+          max-issues: 20
